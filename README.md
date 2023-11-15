@@ -198,7 +198,7 @@ following commands:
 
 ```js
 const amountIn = ethers.parseEther("0.1"); 
-const swap = await simpleSwap.swapWETHForDAI(amountIn, { gasLimit: 300000 });
+const swap = await simpleSwap.swapERCforERC(WETH, DAI, amountIn, { gasLimit: 300000 });
 await swap.wait(); 
 ```
 
