@@ -15,9 +15,9 @@ contract SimpleSwap {
     
     function swapERCforERC(address from, address to, uint amountIn) external returns (uint256 amountOut) {
 
-        // Transfer the specified amount of WETH9 to this contract.
+        // Transfer the specified amount of ERC to this contract.
         TransferHelper.safeTransferFrom(from, msg.sender, address(this), amountIn);
-        // Approve the router to spend WETH9.
+        // Approve the router to spend ERC.
         TransferHelper.safeApprove(from, address(swapRouter), amountIn);
         // Create the params that will be used to execute the swap
         ISwapRouter.ExactInputSingleParams memory params =
