@@ -197,7 +197,8 @@ Finally, we're ready to swap our WETH for DAI. This can be done by running the
 following commands:
 
 ```js
-const amountIn = ethers.parseEther("0.1"); 
+const amountIn = ethers.parseEther("0.1");
+const DAI = new ethers.Contract(DAI_ADDRESS, ercAbi, signers[0]);
 const swap = await simpleSwap.swapERCforERC(WETH, DAI, amountIn, { gasLimit: 300000 });
 await swap.wait(); 
 ```
@@ -208,7 +209,6 @@ We can also check the DAI balance of our account by running the following comman
 
 ```js
 
-const DAI = new ethers.Contract(DAI_ADDRESS, ercAbi, signers[0]);
 const expandedDAIBalance = await DAI.balanceOf(signers[0].address);
 const DAIBalance = Number(ethers.formatUnits(expandedDAIBalance, DAI_DECIMALS));
 console.log("DAI Balance: ", DAIBalance);
